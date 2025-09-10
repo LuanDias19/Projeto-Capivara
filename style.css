@@ -1,0 +1,402 @@
+/* =======================
+   RESET E GERAL
+======================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body,
+html {
+  height: 100%;
+  font-family: "Segoe UI", sans-serif;
+  background-color: #fff;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+/* =======================
+   HEADER E NAVEGAÇÃO
+======================= */
+header {
+  background: linear-gradient(to right, #3a3939, #2d51b4);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+}
+
+header .logo {
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin-left: 15px;
+}
+
+header nav a {
+  color: white;
+  margin-left: 1rem;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+header nav a:hover {
+  text-decoration: underline;
+}
+
+.menu-toggle {
+  display: none;
+  font-size: 2rem;
+  cursor: pointer;
+  color: white;
+  padding: 10px;
+}
+
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+  nav#nav-menu {
+    display: none;
+    flex-direction: column;
+    background-color: #2c3e50;
+    position: absolute;
+    top: 60px;
+    right: 10px;
+    width: 200px;
+    padding: 1rem;
+    border-radius: 10px;
+    z-index: 100;
+  }
+  nav#nav-menu a {
+    margin: 0.5rem 0;
+    color: white;
+    text-decoration: none;
+  }
+  nav#nav-menu.active {
+    display: flex;
+  }
+}
+
+/* =======================
+   TÍTULOS E SEÇÕES
+======================= */
+.titulo,
+h1.titulo {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: 222;
+  text-shadow: 2px 2px 8px rgba(44, 62, 80, 0.3);
+  letter-spacing: 2px;
+  background: none;
+  text-align: center;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  padding: 1rem 0;
+  transition: color 0.3s;
+}
+
+.titulo:hover {
+  color: #e67e22;
+}
+
+.secao {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 4rem 2rem;
+}
+
+.hero {
+  background: linear-gradient(to right, #3a3939, #2d51b4);
+  color: white;
+  flex-direction: column;
+}
+
+.secundaria {
+  background-color: #f8f9fa;
+  color: #333;
+  padding: 5rem 2rem;
+  text-align: center;
+}
+
+.terciaria {
+  background-color: #f8f9fa;
+  padding: 5rem 2rem;
+  text-align: center;
+  flex-direction: column;
+}
+
+/* =======================
+   ONDAS DECORATIVAS
+======================= */
+.onda {
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  position: relative;
+}
+
+#onda1 {
+  background: linear-gradient(to right, #2d51b4, #3a3939);
+  transform: rotate(180deg);
+}
+
+#onda3 {
+  background-color: linear-gradient(to right, #2d51b4, #3a3939);
+  background: #222;
+  transform: rotate(180deg);
+}
+
+#onda2 {
+  background: #222;
+}
+
+.onda svg {
+  display: block;
+  width: 100%;
+  height: 100px;
+}
+
+/* =======================
+   CONTEÚDO PRINCIPAL
+======================= */
+.conteudo-principal,
+.conteudo-secundario {
+  max-width: 800px;
+}
+
+h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+h2 {
+  font-size: 2.2rem;
+  margin-bottom: 1rem;
+}
+
+p {
+  font-size: 1.3rem;
+  margin-bottom: 2rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* =======================
+   FORMULÁRIO
+======================= */
+.formulario-capivara {
+  background: #fff;
+  padding: 32px 24px;
+  border-radius: 16px;
+  box-shadow: 0 4px 24px rgba(44, 62, 80, 0.12);
+  max-width: 420px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.formulario-capivara fieldset {
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
+.formulario-capivara legend {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #6c63ff;
+  margin-bottom: 18px;
+  text-align: center;
+  letter-spacing: 1px;
+}
+
+.formulario-capivara label {
+  font-weight: 600;
+  color: #2d51b4;
+  margin-bottom: 6px;
+  display: block;
+  text-align: left;
+}
+
+.formulario-capivara input,
+.formulario-capivara textarea {
+  padding: 10px;
+  border: 1.5px solid #bdbdbd;
+  border-radius: 8px;
+  font-size: 1em;
+  background: #f8f9fa;
+  transition: border 0.2s, box-shadow 0.2s;
+  margin-bottom: 12px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.formulario-capivara input:focus,
+.formulario-capivara textarea:focus {
+  border-color: #6c63ff;
+  box-shadow: 0 0 0 2px rgba(108, 99, 255, 0.15);
+  outline: none;
+}
+
+.botoes-form {
+  display: flex;
+  gap: 12px;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
+
+/* Botão padrão */
+.button,
+.cta-button {
+  background: #6c63ff;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 28px;
+  font-weight: bold;
+  font-size: 1.1rem;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: background 0.2s;
+}
+
+.button:hover,
+.cta-button:hover {
+  background: #5548c8;
+  color: #fff;
+}
+
+/* Mensagem de agradecimento */
+#mensagem-obrigado {
+  background-color: #dff0d8;
+  color: #3c763d;
+  padding: 1rem;
+  border-radius: 10px;
+  margin-top: 1.5rem;
+  font-size: 1.1rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* =======================
+   RODAPÉ E LINKS
+======================= */
+.rodape {
+  text-align: center;
+  padding: 0.5rem;
+  font-size: 0.9rem;
+  color: #ddd;
+  background: #222;
+}
+
+#github-link {
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+}
+
+#github-link:hover {
+  color: #b95300;
+}
+
+#github-link:visited {
+  color: rgb(255, 255, 255);
+}
+
+/* =======================
+   IMAGENS
+======================= */
+.imagem-secundaria {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 2rem auto 0;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* =======================
+   RESPONSIVIDADE
+======================= */
+@media (max-width: 480px) {
+  .formulario-capivara {
+    padding: 24px 16px;
+  }
+  .titulo-principal {
+    font-size: 2rem;
+  }
+  .botoes-form {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+
+/* =======================
+   CAIXA DE AVISO
+======================= */
+.caixa-warning {
+  background: #6e6441;
+  color: #856404;
+  border: 2px solid #ffeeba;
+  border-radius: 12px;
+  padding: 18px 24px;
+  max-width: 350px;
+  margin: 24px auto;
+  box-shadow: 0 2px 12px rgba(44, 62, 80, 0.08);
+  font-size: 1.1rem;
+  text-align: center;
+  z-index: 10;
+  position: relative;
+}
+
+/* =======================
+   CARD CONTATO
+======================= */
+.card {
+  align-items: center;
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  overflow: auto;
+  transition: transform 0.2s;
+  max-width: 560px;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+}
+
+.card-img-top {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+}
+
+.card-body {
+  margin: auto;
+  padding: 16px;
+}
+
+.card-title {
+  font-size: 1.25rem;
+  font-weight: bold;
+  margin-bottom: 4px;
+  color: #2d51b4;
+}
+
+.card-text {
+  font-size: 1rem;
+  margin-bottom: 1px;
+}

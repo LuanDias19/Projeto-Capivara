@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="images/capivara.png" type="image/png" />
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <div class="logo">
+        <a href="index.html">
+          <img
+            src="images/miniCapivara.png"
+            alt="Capivara"
+            class="icon-capivara"
+            height="60"
+          />
+        </a>
+      </div>
+
+      <!-- Menu sanduíche -->
+      <div class="menu-toggle" id="menu-toggle">&#9776;</div>
+
+      <nav id="nav-menu">
+        <a href="index.html">Início</a>
+        <a href="contato.html">Contato</a>
+      </nav>
+    </header>
+
+    <section class="secao terciaria">
+      <h1 class="titulo">Participe da Iniciativa Capivara!</h1>
+      <div class="conteudo-principal">
+        <form id="form-capivara" class="formulario-capivara">
+          <fieldset>
+            <legend>Formulário de Participação</legend>
+
+            <label for="nome">🦦 Nome:</label>
+            <input
+              type="text"
+              id="nome"
+              name="nome"
+              required
+              autofocus
+              aria-label="Digite seu nome completo"
+            />
+
+            <label for="idade">🎂 Idade:</label>
+            <input
+              type="number"
+              id="idade"
+              name="idade"
+              required
+              min="1"
+              aria-label="Digite sua idade"
+            />
+
+            <label for="cidade">🏙️ Cidade:</label>
+            <input
+              type="text"
+              id="cidade"
+              name="cidade"
+              required
+              aria-label="Digite o nome da sua cidade"
+            />
+
+            <label for="comentario">💬 Comentário:</label>
+            <textarea
+              id="comentario"
+              name="comentario"
+              rows="3"
+              aria-label="Escreva um comentário se quiser"
+            ></textarea>
+
+            <label for="email">💬 Email:</label>
+            <textarea
+              id="email"
+              name="email"
+              rows="1"
+              aria-label="Escreva seu email"
+            ></textarea>
+
+            <div class="botoes-form">
+              <button
+                onclick="salvarDados()"
+                class="cta-button"
+                id="botao-enviar"
+              >
+                Enviar
+              </button>
+              <button type="reset" class="cta-button">Limpar</button>
+            </div>
+
+            <div><p id="mensagem"></p></div>
+          </fieldset>
+        </form>
+      </div>
+    </section>
+
+    <div id="onda3" class="onda">
+      <svg viewBox="0 0 1440 100" preserveAspectRatio="none">
+        <path
+          fill="#f8f9fa"
+          d="M0,100 C480,0 960,100 1440,0 L1440,100 L0,100 Z"
+        ></path>
+      </svg>
+    </div>
+
+    <!-- Rodapé -->
+    <footer class="rodape">© 2025 Capivara Iniciativa</footer>
+    <footer class="rodape">
+      <p>
+        Desenvolvido por
+        <a id="github-link" href="https://github.com/LuanDias19"
+          >Luan M. Dias</a
+        >
+      </p>
+    </footer>
+
+    <script>
+      function salvarDados() {
+        let nome = document.getElementById("nome").value,
+          idade = document.getElementById("idade").value,
+          cidade = document.getElementById("cidade").value,
+          comentario = document.getElementById("comentario").value,
+          email = document.getElementById("email").value;
+
+        localStorage.setItem("nome", nome);
+        localStorage.setItem("idade", idade);
+        localStorage.setItem("cidade", cidade);
+        localStorage.setItem("comentario", comentario);
+        localStorage.setItem("email", email);
+
+        document.getElementById("mensagem-obrigado").style.display = "block";
+      }
+
+      function exibirMensagem(mensagem) {
+        let pMsg = document.getElementById("mensagem");
+        pMsg.innerText = mensagem;
+      }
+
+      function validarFormulario() {
+        let nome = document.getElementById("nome").value,
+          idade = document.getElementById("idade").value,
+          cidade = document.getElementById("cidade").value;
+
+        if (nome && idade && cidade) {
+          document.getElementById("botao-enviar").disabled = false;
+        } else {
+          document.getElementById("botao-enviar").disabled = true;
+        }
+      }
+
+      window.onload = function () {
+        let nomeArmazenado = localStorage.getItem("nome");
+        if (nomeArmazenado) {
+          exibirMensagem("Olá " + nomeArmazenado + ", seu nome está salvo");
+        } else {
+          exibirMensagem("Digite seu nome acima e clique em 'Enviar'");
+        }
+
+        (idadeArmazenada = localStorage.getItem("idade")),
+          (cidadeArmazenada = localStorage.getItem("cidade")),
+          (comentarioArmazenado = localStorage.getItem("comentario")),
+          (emailArmazenado = localStorage.getItem("email"));
+
+        if (nomeArmazenado) {
+          document.getElementById("nome").value = nomeArmazenado;
+        }
+        if (idadeArmazenada) {
+          document.getElementById("idade").value = idadeArmazenada;
+        }
+        if (cidadeArmazenada) {
+          document.getElementById("cidade").value = cidadeArmazenada;
+        }
+        if (comentarioArmazenado) {
+          document.getElementById("comentario").value = comentarioArmazenado;
+        }
+        if (emailArmazenado) {
+          document.getElementById("email").value = emailArmazenado;
+        }
+      };
+    </script>
+    }
+  </body>
+</html>
